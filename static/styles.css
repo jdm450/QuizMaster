@@ -1,0 +1,32 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background: url('/static/images/SolarSystem.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #e0e0e0;
+}
+
+#chatLog {
+    /*border: 1px solid #ccc;*/
+    background: rgba(0, 0, 0, 0.5);  /* Black with 50% opacity */
+    color: white; /* Make text readable */
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 550px;
+    overflow-y: auto;
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+#userMessage {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 300px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 6px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+}

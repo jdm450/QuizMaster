@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>QuizMaster Demo</title>
+    <!-- Link to the stylesheet -->
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <h1>QuizMaster Demo</h1>
+    <div id="chatLog"></div>
+    <input type="text" id="userMessage" placeholder="Quiz me on..." />
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+      /* existing JavaScript code from before */
+      let sessionId = "example-session";
+
+      async function sendMessage() {
+        const userInput = document.getElementById("userMessage").value;
+        if (!userInput) return;
+
+        document.getElementById("chatLog").innerHTML +=
+          `<p><strong>You:</strong> ${userInput}</p>`;
+
+        const response = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            session_id: sessionId,
+            user_input: userInput,
+          }),
+        });
+
+        const data = await response.json();
+        document.getElementById("userMessage").value = "";
+
+        document.getElementById("chatLog").innerHTML +=
+          `<p><strong>Assistant:</strong> ${data.assistant_reply}</p>`;
+      }
+    </script>
+  </body>
+</html>
