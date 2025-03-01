@@ -21,7 +21,7 @@
         if (!userInput) return;
 
         document.getElementById("chatLog").innerHTML +=
-          `<p><strong>You:</strong> ${userInput}</p>`;
+          `<p><strong>Jack:</strong> ${userInput}</p>`;
 
         const response = await fetch("/chat", {
           method: "POST",
@@ -36,7 +36,7 @@
         document.getElementById("userMessage").value = "";
 
         document.getElementById("chatLog").innerHTML +=
-          `<p><strong>Assistant:</strong> ${data.assistant_reply}</p>`;
+          `<p><strong>Chill Quiz Guy:</strong> ${data.assistant_reply}</p>`;
       }
     </script>
   </body>
